@@ -2,9 +2,7 @@
 //https://www.dukelearntoprogram.com//course1/example/index.php
 //
 var img = new SimpleImage("rodger.png");
-
 var howBig = img.getWidth();
-
 for (var pixel of img.values()){
     
     if (pixel.getX() < howBig/3) {
@@ -27,17 +25,14 @@ print(img);
 
 
 var img = new SimpleImage("chapel.png");
-
 for(var pixel of img.values()){
-    
    swapRedGreen(pixel);
 }
-
 function swapRedGreen(pixel){
     
     var red = pixel.getRed();
     var green = pixel.getGreen();
-    
+   
     pixel.setRed(green);
     pixel.setGreen(red);
     
@@ -50,13 +45,11 @@ print(img);
 var img = new SimpleImage("duke_blue_devil.png");
 print(img);
 
-for(var pixel of img.values()){
-    
+for(var pixel of img.values()){    
    turnsBlueYel(pixel);
 }
 
 function turnsBlueYel(pixel){
-    
     var red = pixel.getRed();
     var green = pixel.getGreen();
     var blue = pixel.getBlue();
@@ -77,8 +70,7 @@ print(img);
 var bgImage = new SimpleImage("universe1.jpg");
 var frontImage = new SimpleImage("drewRobert.png");
 
-for (var pixel of frontImage.values()){
-    
+for (var pixel of frontImage.values()){    
     if(pixel.getGreen() <= 255 && pixel.getRed() <= 173 && pixel.getBlue() == 0) {
         
         var x = pixel.getX();
@@ -91,9 +83,10 @@ for (var pixel of frontImage.values()){
 print(frontImage);
 
 
+//Add Border on images
+
 var image = new SimpleImage("chapel.png");
 //print(addBorder(image, 6));
-
 
 function pixelOnEdge(image,pixel,horizontalThick, verticalThick){
     var x = pixel.getX();
@@ -119,6 +112,43 @@ function addBorders(image,horizontalThick, verticalThick){
 image = addBorders(image,40,20);
 print(image);
 
+function addBorder(image, thickness){
+  for (var px of image.values()){
+    var x = px.getX();
+    var y = px.getY();
+    if (x < thickness){
+      px = setBlack(px);
+    }
+    if (x >= image.getWidth()-thickness){
+      px = setBlack(px);
+    }
+    if (y < thickness){
+      px = setBlack(px);
+    }
+    if (y >= image.getHeight()-thickness){
+      px = setBlack(px);
+    }
+  }
+  return image;
+}
+
+function addBorder(image, thickness){
+    for (var pixel of image.values()){
+        if (pixel.getX() < thickness){
+            pixel = setBlack(pixel);
+        }
+        if (pixel.getX() >= image.getWidth()-thickness){
+            pixel = setBlack(pixel);
+        }
+        if (pixel.getY() < thickness){
+            pixel = setBlack(pixel);
+        }
+        if (pixel.getY() >= image.getHeight()-thickness){
+            pixel = setBlack(pixel);
+        }
+    }
+    return image;
+}
 
 function setBlack(px){
     
