@@ -70,3 +70,22 @@ function turnsBlueYel(pixel){
 }
 print(img);
 
+// write your code here
+// Part 1
+//BlueScreen
+
+var bgImage = new SimpleImage("universe1.jpg");
+var frontImage = new SimpleImage("drewRobert.png");
+
+for (var pixel of frontImage.values()){
+    
+    if(pixel.getGreen() <= 255 && pixel.getRed() <= 173 && pixel.getBlue() == 0) {
+        
+        var x = pixel.getX();
+        var y = pixel.getY();
+        var mypixel = bgImage.getPixel(x,y); 
+        frontImage.setPixel(x,y,mypixel);
+    }
+}
+
+print(frontImage);
