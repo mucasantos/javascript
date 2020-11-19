@@ -61,7 +61,7 @@ function turnsBlueYel(pixel){
     var green = pixel.getGreen();
     var blue = pixel.getBlue();
     
-    if( red == 0 && green == 51 && blue == 227) {
+    if( red <= 200 && green <= 150 && blue >= 220) {
         pixel.setRed(255);
         pixel.setGreen(255);
         pixel.setBlue(0);
