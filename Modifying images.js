@@ -43,3 +43,30 @@ function swapRedGreen(pixel){
     
 }
 print(img);
+
+//Part 3
+//Turns Blue in Yellow
+
+var img = new SimpleImage("duke_blue_devil.png");
+print(img);
+
+for(var pixel of img.values()){
+    
+   turnsBlueYel(pixel);
+}
+
+function turnsBlueYel(pixel){
+    
+    var red = pixel.getRed();
+    var green = pixel.getGreen();
+    var blue = pixel.getBlue();
+    
+    if( red == 0 && green == 51 && blue == 227) {
+        pixel.setRed(255);
+        pixel.setGreen(255);
+        pixel.setBlue(0);
+    }
+    
+}
+print(img);
+
