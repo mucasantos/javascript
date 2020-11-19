@@ -89,3 +89,42 @@ for (var pixel of frontImage.values()){
 }
 
 print(frontImage);
+
+
+var image = new SimpleImage("chapel.png");
+//print(addBorder(image, 6));
+
+
+function pixelOnEdge(image,pixel,horizontalThick, verticalThick){
+    var x = pixel.getX();
+    var y = pixel.getY();
+    if (x < verticalThick || x > image.getWidth() - verticalThick){
+        return true;
+    }
+    if (y < horizontalThick || y > image.getHeight() - horizontalThick){
+        return true;
+    }
+    return false;
+}
+
+function addBorders(image,horizontalThick, verticalThick){
+    for (var px of image.values()){
+        if (pixelOnEdge(image,px,horizontalThick,verticalThick)){
+            px = setBlack(px);
+        }
+    }
+    return image;
+}
+
+image = addBorders(image,40,20);
+print(image);
+
+
+function setBlack(px){
+    
+    px.setRed(0);
+    px.setBlue(0);
+    px.setGreen(0);
+    
+    return px;
+}
