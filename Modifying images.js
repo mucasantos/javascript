@@ -1,4 +1,6 @@
 // write your code here
+//https://www.dukelearntoprogram.com//course1/example/index.php
+//
 var img = new SimpleImage("rodger.png");
 
 var howBig = img.getWidth();
