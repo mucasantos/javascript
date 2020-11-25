@@ -1,0 +1,27 @@
+body {background-color: powderblue;}
+h1   {color: blue;
+  font-family: arial
+}
+p    {color: red;}
+
+div {
+  
+  width:150pt;
+  padding: 5pt;
+  margin: 10pt;
+  border: 5px solid lightgray;
+  font-size: 16pt;
+}
+
+
+#div2 {
+  background-color: orange;
+}
+.yellow {
+  
+  background-color: yellow;
+}
+.blue {
+  
+  background-color: white;
+}
